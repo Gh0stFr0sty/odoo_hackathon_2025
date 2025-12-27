@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Root Menu -->
+    <menuitem id="menu_gearguard_root"
+              name="GearGuard"
+              sequence="10"/>
+
+    <!-- Equipment -->
+    <menuitem id="menu_gearguard_equipment"
+              name="Equipment"
+              parent="menu_gearguard_root"
+              action="action_gearguard_equipment"
+              sequence="10"/>
+
+    <!-- Maintenance Requests -->
+    <menuitem id="menu_gearguard_requests"
+              name="Maintenance Requests"
+              parent="menu_gearguard_root"
+              action="action_gearguard_request"
+              sequence="20"/>
+
+    <!-- Teams -->
+    <menuitem id="menu_gearguard_teams"
+              name="Teams"
+              parent="menu_gearguard_root"
+              action="action_gearguard_team"
+              sequence="30"/>
+
+</odoo>

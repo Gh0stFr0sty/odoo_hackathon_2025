@@ -7,9 +7,10 @@
     'category': 'Operations',
     'depends': ['base', 'mail'],
     'data': [
-        'views/equipment_views.xml',
-        'views/maintenance_team_views.xml',
-        'views/maintenance_request_views.xml',
+    'views/equipment_views.xml',
+    'views/maintenance_team_views.xml',      # defines action_gearguard_team
+    'views/maintenance_request_views.xml',
+    'views/gearguard_menus.xml',              # menus come LAST
     ],
     'application': True,
 }
