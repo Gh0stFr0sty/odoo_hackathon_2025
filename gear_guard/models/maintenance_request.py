@@ -35,25 +35,28 @@ class GearGuardRequest(models.Model):
     team_member_ids = fields.Many2many('res.users', related='team_id.member_ids')
     technician_id = fields.Many2one('res.users', string='Technician', tracking=True)
 
-    is_overdue = fields.Boolean(compute='_compute_is_overdue', string='Overdue')
+    is_overdue = fields.Boolean(compute='_compute_is_overdue', string='Overdue', store=True)
+
+    @api.depends('scheduled_date', 'stage')
+    def _compute_is_overdue(self):
+        today = fields.Date.today()
+        for record in self:
+            if (
+                record.scheduled_date
+                and record.scheduled_date < today
+                and record.stage not in ('repaired', 'scrap')
+            ):
+                record.is_overdue = True
+            else:
+                record.is_overdue = False
 
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
         """ Ensure all stages are visible in Kanban even if empty """
         return ['new', 'in_progress', 'repaired', 'scrap']
 
-    @api.depends('scheduled_date', 'stage')
-    def _compute_is_overdue(self):
-        today = date.today()
-        for record in self:
-            if record.scheduled_date and record.scheduled_date < today and record.stage not in ['repaired', 'scrap']:
-                record.is_overdue = True
-            else:
-                record.is_overdue = False
-
     @api.onchange('equipment_id')
     def _onchange_equipment_id(self):
-        """ Auto-fill logic from """
         if self.equipment_id:
             self.team_id = self.equipment_id.team_id
             self.technician_id = self.equipment_id.technician_id
