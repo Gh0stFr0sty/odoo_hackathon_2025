@@ -54,4 +54,35 @@
         </field>
     </record>
 
+        <!-- Maintenance Request Calendar View -->
+    <record id="view_maintenance_request_calendar" model="ir.ui.view">
+        <field name="name">gear.guard.maintenance.request.calendar</field>
+        <field name="model">gear_guard.maintenance.request</field>
+        <field name="arch" type="xml">
+            <calendar
+                string="Preventive Maintenance"
+                date_start="scheduled_date"
+                color="maintenance_team_id">
+
+                <field name="name"/>
+                <field name="equipment_id"/>
+                <field name="technician_id"/>
+
+            </calendar>
+        </field>
+    </record>
+
+        <!-- Preventive Maintenance Filter -->
+    <record id="view_maintenance_request_search" model="ir.ui.view">
+        <field name="name">gear.guard.maintenance.request.search</field>
+        <field name="model">gear_guard.maintenance.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter
+                    string="Preventive"
+                    domain="[('request_type','=','preventive')]"/>
+            </search>
+        </field>
+    </record>
+
 </odoo>
