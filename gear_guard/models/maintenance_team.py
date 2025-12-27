@@ -1,11 +1,8 @@
 from odoo import models, fields
 
-class GearGuardMaintenanceTeam(models.Model):
-    _name = 'gear_guard.maintenance.team'
+class GearGuardTeam(models.Model):
+    _name = 'gearguard.team'
     _description = 'Maintenance Team'
 
     name = fields.Char(string='Team Name', required=True)
-    member_ids = fields.Many2many(
-        'res.users',
-        string='Team Members'
-    )
+    member_ids = fields.Many2many('res.users', string='Team Members')

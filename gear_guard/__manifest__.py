@@ -8,6 +8,7 @@
     'depends': ['base', 'mail'],
     'data': [
         'security/ir.model.access.csv',
+        'views/maintenance_request_views.xml',
     ],
     'application': True,
 }
