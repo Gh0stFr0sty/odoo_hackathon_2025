@@ -46,7 +46,7 @@ To build an Odoo module that connects:
 - GitHub: ampa-odoo
 
 ## 📹 Demo Video
-(To be added)
+https://youtu.be/wYGt-OOAum8
 
 ---
 Odoo Hackathon 2025
