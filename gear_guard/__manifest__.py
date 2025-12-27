@@ -11,7 +11,6 @@
         'views/equipment_views.xml',
         'views/maintenance_team_views.xml',
         'views/maintenance_request_views.xml',
-        'views/menu_items.xml',
     ],
     'application': True,
 }
