@@ -31,6 +31,11 @@ To build an Odoo module that connects:
 - Scheduled maintenance with calendar visibility
 - Technician can view upcoming tasks
 
+## 🧰 Tech Stack
+- Odoo Framework (Python)
+- XML (Views)
+- PostgreSQL (Database)
+
 ## 🧑‍🤝‍🧑 Team
 - Team Leader: Rishi Borisa
 - Members: Heet Patel
