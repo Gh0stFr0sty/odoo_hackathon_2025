@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 
 class GearGuardCategory(models.Model):
-    _name = 'gearguard.category'
+    _name = 'gearguard.equipment'
     _description = 'Equipment Category'
     
     name = fields.Char(string='Category Name', required=True)
